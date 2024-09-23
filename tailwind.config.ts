@@ -9,6 +9,9 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+			fonts: {
+        sans: ['var(--font-inter)'],
+			},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
