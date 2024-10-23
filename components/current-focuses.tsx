@@ -23,7 +23,9 @@ export function CurrentFocuses() {
   return (
     <section className="md:max-w-md w-full mx-auto space-y-8">
       <div className="inline-flex flex-wrap gap-2 items-baseline">
-        <h2 className="font-serif text-xl text-neutral-200">Current Focuses</h2>
+        <h2 className="font-serif text-2xl text-neutral-200">
+          Current Focuses
+        </h2>
         <p className="text-sm text-neutral-500">
           (I like TO DO&apos;s lists😌)
         </p>

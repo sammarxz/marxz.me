@@ -9,6 +9,7 @@ import { CurrentLocationStats } from "@/components/current-location-stats";
 import { Divider } from "@/components/ui/divider";
 import { BookCTA } from "@/components/book-cta";
 import { Newsletter } from "@/components/newsletter";
+import { Footer } from "@/components/footer";
 
 export default function Home() {
   return (
@@ -30,6 +31,7 @@ export default function Home() {
         <BookCTA />
         <Newsletter />
       </div>
+      <Footer />
     </main>
   );
 }
