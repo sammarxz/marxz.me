@@ -73,18 +73,22 @@ export function Header() {
 
       <LayoutGroup>
         <motion.div layout className="flex items-center flex-wrap gap-6">
-          <motion.div layout transition={{ duration: 0.5 }}>
+          <motion.div
+            layout
+            transition={{ duration: 0.5 }}
+            className="w-full sm:w-auto"
+          >
             <motion.button
               layout
               onClick={handleCopy}
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
-              className="font-sans relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-50"
+              className="w-full sm:w-auto font-sans relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-neutral-400 focus:ring-offset-2 focus:ring-offset-neutral-50"
             >
               <motion.span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
               <motion.span
                 layout
-                className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-gray-950 px-8 py-1 text-sm font-medium text-gray-50 backdrop-blur-3xl"
+                className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-neutral-950 px-8 py-1 text-sm font-medium text-neutral-50 backdrop-blur-3xl"
               >
                 <AnimatePresence mode="wait">
                   <motion.span
@@ -101,18 +105,20 @@ export function Header() {
               </motion.span>
             </motion.button>
           </motion.div>
-          {socialLinks.map(({ title, url }) => (
-            <motion.div layout key={title}>
-              <a
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-sans link"
-              >
-                {title}
-              </a>
-            </motion.div>
-          ))}
+          <div className="flex items-center flex-wrap gap-6">
+            {socialLinks.map(({ title, url }) => (
+              <motion.div layout key={title}>
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-sans link"
+                >
+                  {title}
+                </a>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
       </LayoutGroup>
     </motion.header>

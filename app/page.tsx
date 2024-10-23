@@ -1,3 +1,4 @@
+import { CurrentFocuses } from "@/components/current-focuses";
 import { Header } from "@/components/header";
 import { Projects } from "@/components/projects";
 import { Stats } from "@/components/stats";
@@ -10,6 +11,7 @@ export default function Home() {
         <Stats />
       </div>
       <Projects />
+      <CurrentFocuses />
     </main>
   );
 }

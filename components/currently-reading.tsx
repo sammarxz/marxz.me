@@ -3,8 +3,6 @@ import { getCurrentlyReading } from "@/lib/literal";
 export async function CurrentlyReading() {
   const book = await getCurrentlyReading();
 
-  console.log(book);
-
   if (!book) {
     return <>I&apos;m not reading anything at the moment.</>;
   }
