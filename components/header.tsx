@@ -1,10 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { RoughNotation, RoughNotationGroup } from "react-rough-notation";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { MeetButton } from "@/components/core/meet-button";
-import { HighlightText } from "@/components/core/highlight-text";
 
 const transition = { duration: 1, ease: [0.25, 0.1, 0.25, 1] };
 const variants = {
@@ -13,6 +14,10 @@ const variants = {
 };
 
 export function Header() {
+  const ref = useRef(null);
+  const isInView = useInView(ref);
+  const textHighlightColor = "hsla(229.7 93.5% 85.8%)";
+
   const actualYear = new Date().getFullYear();
   const age = actualYear - 1996;
   const xpInYears = actualYear - 2018;
@@ -39,38 +44,57 @@ export function Header() {
         </div>
       </motion.div>
 
-      <div className="flex flex-col gap-6">
-        <div className="leading-relaxed space-y-6">
-          <motion.p transition={transition} variants={variants}>
-            Natural de Caruaru/PE, Brasil, {age} anos, sou um{" "}
-            <strong className="font-semibold">
-              Designer e Desenvolvedor de software
-            </strong>{" "}
-            com mais de {xpInYears} anos de experiência trabalhando em projetos
-            baseados na web. Minha especialidade é no{" "}
-            <HighlightText delay={0.4}>
-              desenvolvimento front-end com tecnologias React
-            </HighlightText>
-            , construindo interfaces de usuário responsivas para empresas de
-            todos os portes.
-          </motion.p>
-          <motion.p transition={transition} variants={variants}>
-            Em todas as atividades me empenho com bastante atenção aos detalhes
-            para reduzir problemas complexos em soluções inteligentes que
-            equilibrem acessiblidade, simplicidade e funcionalidade. Sou{" "}
-            <HighlightText delay={0.8}>
-              apaixonado pela intersecção do design e tecnologia onde minha
-              experiência permite que participe no processo de desenvolvimento
-              de software, desde o design até a implementação do código final.
-            </HighlightText>
-          </motion.p>
-          <motion.p transition={transition} variants={variants}>
-            No meu tempo livre aproveito para saborear um bom café, ler,
-            estudar, praticar exercícios, passear com meus cachorros, meditar,
-            ouvir músicas e podcasts, ou estar na companhia da família e amigos,
-            independentemente da atividade.
-          </motion.p>
-        </div>
+      <div ref={ref}>
+        <RoughNotationGroup show={isInView}>
+          <div className="flex flex-col gap-6">
+            <div className="leading-relaxed space-y-6">
+              <motion.p transition={transition} variants={variants}>
+                Natural de Caruaru/PE, Brasil, {age} anos, sou um{" "}
+                <strong className="font-semibold">
+                  Designer e Desenvolvedor de software
+                </strong>{" "}
+                com mais de {xpInYears} anos de experiência trabalhando em
+                projetos baseados na web. Minha especialidade é no{" "}
+                <RoughNotation type="highlight" color={textHighlightColor}>
+                  desenvolvimento front-end com tecnologias React
+                </RoughNotation>
+                , construindo interfaces de usuário responsivas para empresas de
+                todos os portes.
+              </motion.p>
+              <motion.p transition={transition} variants={variants}>
+                Em todas as atividades me empenho com bastante atenção aos
+                detalhes para reduzir problemas complexos em soluções
+                inteligentes que equilibrem{" "}
+                <RoughNotation type="underline" color="hsla(238.7 83.5% 66.7%)">
+                  acessiblidade
+                </RoughNotation>
+                ,{" "}
+                <RoughNotation type="underline" color="hsla(238.7 83.5% 66.7%)">
+                  simplicidade
+                </RoughNotation>{" "}
+                e{" "}
+                <RoughNotation type="underline" color="hsla(238.7 83.5% 66.7%)">
+                  funcionalidade
+                </RoughNotation>
+                . Sou{" "}
+                <RoughNotation type="underline" color="hsla(238.7 83.5% 66.7%)">
+                  apaixonado pela intersecção do design e tecnologia
+                </RoughNotation>{" "}
+                onde minha experiência permite que participe no processo de
+                desenvolvimento de software,{" "}
+                <RoughNotation type="box" color="hsla(238.7 83.5% 66.7%)">
+                  desde o design até a implementação do código final.
+                </RoughNotation>
+              </motion.p>
+              <motion.p transition={transition} variants={variants}>
+                No meu tempo livre aproveito para saborear um bom café, ler,
+                estudar, praticar exercícios, passear com meus cachorros,
+                meditar, ouvir músicas e podcasts, ou estar na companhia da
+                família e amigos, independentemente da atividade.
+              </motion.p>
+            </div>
+          </div>
+        </RoughNotationGroup>
       </div>
 
       <div className="flex items-center flex-wrap gap-6">
