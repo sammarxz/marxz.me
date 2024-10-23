@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Instrument_Serif } from "next/font/google";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
+import { Analytics } from "@vercel/analytics/react";
 
 import { ThemeProvider } from "@/components/theme-provider";
 
@@ -35,6 +36,7 @@ export default function RootLayout({
       <body
         className={`${GeistSans.variable} ${instrument.variable} ${GeistMono.variable} dark bg-black text-neutral-400 antialiased font-sans`}
       >
+        <Analytics />
         <ThemeProvider
           // forcedTheme="dark"
           defaultTheme="dark"
