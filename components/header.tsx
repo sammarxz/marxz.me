@@ -51,7 +51,7 @@ export function Header() {
       initial="hidden"
       whileInView="visible"
       transition={{ staggerChildren: 0.04 }}
-      className="md:max-w-md mx-auto flex flex-col gap-12"
+      className="md:max-w-md mx-auto flex flex-col gap-8"
     >
       <motion.div className="flex justify-between items-center">
         <motion.div

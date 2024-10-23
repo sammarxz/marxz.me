@@ -43,7 +43,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         style={{
           borderRadius: "12px",
         }}
-        className="flex w-full flex-col overflow-hidden border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-900"
+        className="flex w-full flex-col overflow-hidden border border-zinc-950/10 bg-black"
       >
         <DialogImage
           src={imageUrl}
@@ -55,9 +55,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             <DialogTitle className="text-zinc-950 font-medium">
               {title}
             </DialogTitle>
-            <DialogSubtitle className="text-zinc-700 text-xs">
-              {tag}
-            </DialogSubtitle>
           </div>
         </div>
       </DialogTrigger>
@@ -66,7 +63,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           style={{
             borderRadius: "24px",
           }}
-          className="pointer-events-auto relative flex h-auto w-full flex-col overflow-hidden border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-900 sm:w-[500px]"
+          className="pointer-events-auto relative flex h-auto w-full flex-col overflow-hidden border border-zinc-950/10 bg-neutral-900 sm:w-[500px]"
         >
           <DialogImage
             src={imageUrl}
