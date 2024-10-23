@@ -8,6 +8,7 @@ import { Loading } from "@/components/ui/loading";
 import { CurrentLocationStats } from "@/components/current-location-stats";
 import { Divider } from "@/components/ui/divider";
 import { BookCTA } from "@/components/book-cta";
+import { Newsletter } from "@/components/newsletter";
 
 export default function Home() {
   return (
@@ -25,7 +26,10 @@ export default function Home() {
         <Divider />
         <CurrentLocationStats />
       </div>
-      <BookCTA />
+      <div className="flex flex-col gap-12">
+        <BookCTA />
+        <Newsletter />
+      </div>
     </main>
   );
 }
