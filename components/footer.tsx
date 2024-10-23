@@ -1,5 +1,3 @@
-import { Divider } from "./ui/divider";
-
 export function Footer() {
   return (
     <footer className="w-full md:max-w-md mx-auto space-y-12">
