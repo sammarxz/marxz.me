@@ -5,7 +5,7 @@ import { Stats } from "@/components/stats";
 export default function Home() {
   return (
     <main className="flex flex-col gap-16 md:gap-28">
-      <div className="space-y-8">
+      <div className="flex flex-col gap-9">
         <Header />
         <Stats />
       </div>
