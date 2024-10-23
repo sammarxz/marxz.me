@@ -9,14 +9,17 @@ export async function MonthlyCommits() {
   }
 
   return (
-    <a
-      href="https://github.com/sammarxz"
-      target="_blank"
-      rel="noopener noreferrer"
-      title="Sam Marxz's Github"
-      className="hover:text-neutral-800 dark:hover:text-neutral-300 transition duration-300"
-    >
-      In {currentMonth}, I made {commits} commit(s) on Github ↗
-    </a>
+    <>
+      In {currentMonth},{" "}
+      <a
+        href="https://github.com/sammarxz"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="Sam Marxz's Github"
+        className="hover:text-neutral-800 dark:hover:text-neutral-300 transition duration-300"
+      >
+        I made {commits} commit(s) on Github ↗
+      </a>
+    </>
   );
 }
