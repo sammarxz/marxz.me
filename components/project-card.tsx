@@ -1,5 +1,3 @@
-import { ArrowUpRight } from "lucide-react";
-
 import {
   Dialog,
   DialogTrigger,
@@ -7,12 +5,9 @@ import {
   DialogTitle,
   DialogImage,
   DialogSubtitle,
-  DialogClose,
   DialogDescription,
   DialogContainer,
 } from "@/components/core/dialog";
-
-import { Button } from "@/components/ui/button";
 
 interface ProjectCardProps {
   imageUrl: string;
@@ -29,7 +24,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   title,
   tag,
   description,
-  externalLink,
 }) => {
   return (
     <Dialog
@@ -39,7 +33,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         duration: 0.25,
       }}
     >
-      <DialogTrigger className="flex w-full flex-col overflow-hidden border border-zinc-950/10 bg-black">
+      <DialogTrigger className="flex w-full flex-col overflow-hidden border border-neutral-950/10 bg-black">
         <DialogImage
           src={imageUrl}
           alt={imageAlt}
@@ -54,18 +48,18 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         </div>
       </DialogTrigger>
       <DialogContainer>
-        <DialogContent className="pointer-events-auto relative flex h-auto w-full flex-col overflow-hidden border border-zinc-950/10 bg-neutral-900 sm:w-[500px]">
+        <DialogContent className="rounded-2xl pointer-events-auto relative flex h-auto w-full flex-col overflow-hidden border border-neutral-950/10 bg-neutral-900 sm:max-w-[450px]">
           <DialogImage
             src={imageUrl}
             alt={imageAlt}
-            className="h-full w-full"
+            className="h-full max-h-[400px] w-full object-cover"
           />
-          <div className="p-6 space-y-4">
+          <div className="p-8 space-y-4">
             <div className="space-y-1">
-              <DialogTitle className="text-2xl font-medium text-zinc-950 dark:text-zinc-50">
+              <DialogTitle className="text-3xl font-serif font-medium text-neutral-950 dark:text-neutral-50">
                 {title}
               </DialogTitle>
-              <DialogSubtitle className="text-zinc-700 dark:text-zinc-400 text-sm">
+              <DialogSubtitle className="text-neutral-700 dark:text-neutral-400 text-sm">
                 {tag}
               </DialogSubtitle>
             </div>
@@ -78,22 +72,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               }}
               className="space-y-4"
             >
-              <p className="mt-2 text-zinc-500 dark:text-zinc-500">
+              <p className="mt-2 text-neutral-500 dark:text-neutral-500">
                 {description}
               </p>
-              <a
-                href={externalLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block"
-              >
-                <Button variant="outline" className="flex gap-2 items-center">
-                  Visitar Site <ArrowUpRight className="h-4 w-4" />
-                </Button>
-              </a>
             </DialogDescription>
           </div>
-          <DialogClose className="text-zinc-50" />
         </DialogContent>
       </DialogContainer>
     </Dialog>

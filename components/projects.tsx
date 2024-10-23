@@ -1,6 +1,6 @@
 import { Cursor } from "@/components/core/cursor";
 
-import { ProjectCard } from "./projectCard";
+import { ProjectCard } from "./project-card";
 
 const projects = [
   {
