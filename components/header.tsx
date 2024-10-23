@@ -6,11 +6,6 @@ import { toast } from "sonner";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-const transition = { duration: 1, ease: [0.25, 0.1, 0.25, 1] };
-const variants = {
-  hidden: { filter: "blur(10px)", transform: "translateY(20%)", opacity: 0 },
-  visible: { filter: "blur(0)", transform: "translateY(0)", opacity: 1 },
-};
 const socialLinks = [
   {
     title: "X/Twitter",
@@ -47,18 +42,9 @@ export function Header() {
   };
 
   return (
-    <motion.header
-      initial="hidden"
-      whileInView="visible"
-      transition={{ staggerChildren: 0.04 }}
-      className="md:max-w-md mx-auto flex flex-col gap-8"
-    >
+    <motion.header className="md:max-w-md mx-auto flex flex-col gap-8">
       <motion.div className="flex justify-between items-center">
-        <motion.div
-          transition={transition}
-          variants={variants}
-          className="flex gap-4 items-center"
-        >
+        <motion.div className="flex gap-4 items-center">
           <Avatar className="w-14 h-14 rounded-xl">
             <AvatarImage src="/profile-sammarxz.jpg" />
             <AvatarFallback>SM</AvatarFallback>
@@ -66,16 +52,8 @@ export function Header() {
         </motion.div>
       </motion.div>
 
-      <motion.div
-        transition={transition}
-        variants={variants}
-        className="space-y-4"
-      >
-        <motion.h1
-          transition={transition}
-          variants={variants}
-          className="text-4xl leading-tight font-serif"
-        >
+      <motion.div className="space-y-4">
+        <motion.h1 className="text-4xl leading-tight font-serif">
           <span className="text-white">Hey, I&apos;m Sam.</span> Designer &
           Developer, currently working at{" "}
           <a
@@ -94,12 +72,7 @@ export function Header() {
       </motion.div>
 
       <LayoutGroup>
-        <motion.div
-          layout
-          className="flex items-center flex-wrap gap-6"
-          transition={transition}
-          variants={variants}
-        >
+        <motion.div layout className="flex items-center flex-wrap gap-6">
           <motion.div layout transition={{ duration: 0.5 }}>
             <motion.button
               layout

@@ -13,7 +13,7 @@ const projects = [
     previewUrl: "https://google.com",
   },
   {
-    title: "Agência WeTwo",
+    title: "WeTwo Agency",
     tag: "Co-Fundador",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus beatae accusantium voluptate distinctio tenetur nemo atque minus dolore soluta placeat odio sunt",
@@ -45,7 +45,7 @@ export function Projects() {
               <div>
                 {/* <MouseIcon className='h-6 w-6' /> */}
                 <div className="ml-4 mt-8 rounded-xl bg-black/80 py-2 px-4 text-neutral-50">
-                  Saiba mais
+                  Explore
                 </div>
               </div>
             </Cursor>

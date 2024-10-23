@@ -39,32 +39,22 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         duration: 0.25,
       }}
     >
-      <DialogTrigger
-        style={{
-          borderRadius: "12px",
-        }}
-        className="flex w-full flex-col overflow-hidden border border-zinc-950/10 bg-black"
-      >
+      <DialogTrigger className="flex w-full flex-col overflow-hidden border border-zinc-950/10 bg-black">
         <DialogImage
           src={imageUrl}
           alt={imageAlt}
-          className="h-60 w-full object-cover"
+          className="h-72 w-full object-cover rounded-2xl"
         />
-        <div className="flex flex-grow flex-row items-end justify-between p-4">
+        <div className="flex flex-grow flex-row items-center justify-center p-4">
           <div className="space-y-0.5">
-            <DialogTitle className="text-zinc-950 font-medium">
+            <DialogTitle className="w-full text-white font-serif text-xl text-center font-medium">
               {title}
             </DialogTitle>
           </div>
         </div>
       </DialogTrigger>
       <DialogContainer>
-        <DialogContent
-          style={{
-            borderRadius: "24px",
-          }}
-          className="pointer-events-auto relative flex h-auto w-full flex-col overflow-hidden border border-zinc-950/10 bg-neutral-900 sm:w-[500px]"
-        >
+        <DialogContent className="pointer-events-auto relative flex h-auto w-full flex-col overflow-hidden border border-zinc-950/10 bg-neutral-900 sm:w-[500px]">
           <DialogImage
             src={imageUrl}
             alt={imageAlt}
