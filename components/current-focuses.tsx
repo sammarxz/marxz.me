@@ -40,6 +40,7 @@ export function CurrentFocuses() {
                 <AnimatedCheckIcon
                   delay={i * 0.05}
                   className="text-indigo-300"
+                  isVisible={false}
                 />
               ) : null}
             </div>
