@@ -11,6 +11,7 @@ const config: Config = {
   	extend: {
 			fontFamily: {
         sans: ['var(--font-geist-sans)'],
+        serif: ["var(--font-instrument)"],
         mono: ['var(--font-geist-mono)'],
       },
   		colors: {

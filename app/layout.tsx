@@ -1,8 +1,20 @@
 import type { Metadata, Viewport } from "next";
+import { Instrument_Serif } from "next/font/google";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 
+import { ThemeProvider } from "@/components/theme-provider";
+
+import { Toaster } from "@/components/ui/sonner";
+
 import "./globals.css";
+
+const instrument = Instrument_Serif({
+  weight: ["400"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-instrument",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,15 +31,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-br">
+    <html lang="en">
       <body
-        className={`${GeistSans.variable} ${GeistMono.variable} text-black bg-white dark:text-white dark:bg-black font-sans`}
+        className={`${GeistSans.variable} ${instrument.variable} ${GeistMono.variable} dark bg-black text-neutral-400 antialiased font-sans`}
       >
-        <div className="min-h-screen bg-white text-neutral-900">
-          <div className="md:max-w-3xl px-8 mx-auto flex flex-col gap-16 md:gap-24 py-16 md:py-28">
-            {children}
+        <ThemeProvider
+          // forcedTheme="dark"
+          defaultTheme="dark"
+          disableTransitionOnChange
+        >
+          <div className="min-h-screen">
+            <div className="md:max-w-3xl px-8 mx-auto flex flex-col gap-16 md:gap-24 py-16 md:py-28">
+              {children}
+            </div>
           </div>
-        </div>
+
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );
