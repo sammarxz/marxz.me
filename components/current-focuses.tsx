@@ -6,15 +6,11 @@ const focusList = [
     done: true,
   },
   {
-    name: "Start a newsletter",
+    name: "Start a personal newsletter",
     done: true,
   },
   {
     name: "Create WeTwo Landing Page",
-    done: false,
-  },
-  {
-    name: "Create Webnautas Landing Page",
     done: false,
   },
   {
