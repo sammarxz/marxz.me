@@ -7,6 +7,7 @@ import { Stats } from "@/components/stats";
 import { Loading } from "@/components/ui/loading";
 import { CurrentLocationStats } from "@/components/current-location-stats";
 import { Divider } from "@/components/ui/divider";
+import { BookCTA } from "@/components/book-cta";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
         <Divider />
         <CurrentLocationStats />
       </div>
+      <BookCTA />
     </main>
   );
 }
