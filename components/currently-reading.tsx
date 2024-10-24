@@ -4,19 +4,19 @@ export async function CurrentlyReading() {
   const book = await getCurrentlyReading();
 
   if (!book) {
-    return <>I&apos;m not reading anything at the moment.</>;
+    return <>não estou lendo nada no momento.</>;
   }
 
   return (
     <>
-      I&apos;m reading{" "}
+      estou lendo{" "}
       <a
         href={book.link}
         target="_blank"
         rel="noopener noreferrer"
         className="hover:text-neutral-800 dark:hover:text-neutral-300 transition duration-300"
       >
-        &quot;{book.title}&quot; by {book.author} ↗.
+        &quot;{book.title}&quot; de {book.author} ↗.
       </a>
     </>
   );

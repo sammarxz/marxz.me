@@ -22,7 +22,7 @@ const socialLinks = [
 ];
 
 export function Header() {
-  const [buttonText, setButtonText] = useState("Copy Email");
+  const [buttonText, setButtonText] = useState("Copiar Email");
   const [isHovered, setIsHovered] = useState(false);
 
   const email = "sam@marxz.me";
@@ -30,19 +30,19 @@ export function Header() {
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(email);
-      setButtonText("Email Copied!");
-      toast("Email Copied!");
+      setButtonText("Email Copiado!");
+      toast("Email Copiado!");
 
-      setTimeout(() => setButtonText("Copy Email"), 2000);
+      setTimeout(() => setButtonText("Copiar Email"), 2000);
     } catch {
-      setButtonText("Failed to copy");
-      toast("Failed to copy!");
-      setTimeout(() => setButtonText("Copy Email"), 2000);
+      setButtonText("Erro ao copiar email");
+      toast("Erro ao copiar email!");
+      setTimeout(() => setButtonText("Copiar Email"), 2000);
     }
   };
 
   return (
-    <motion.header className="md:max-w-md mx-auto flex flex-col gap-8">
+    <motion.header className="flex flex-col gap-8">
       <motion.div className="flex justify-between items-center">
         <motion.div className="flex gap-4 items-center">
           <Avatar className="w-14 h-14 rounded-xl">
@@ -53,22 +53,18 @@ export function Header() {
       </motion.div>
 
       <motion.div className="space-y-4">
-        <motion.h1 className="text-4xl leading-tight font-serif">
-          <span className="text-white">Hey, I&apos;m Sam.</span> Designer &
-          Developer, currently working at{" "}
-          <a
-            href="https://scriptcase.net"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white"
-          >
-            Scriptcase.
-          </a>
-        </motion.h1>
-        <motion.p className="text-md font-sans leading-normal">
-          My specialty is front-end development with ReactJS technologies,
-          building responsive user interfaces for companies of all sizes.
-        </motion.p>
+        <h1 className="text-xl leading-relaxed font-medium">
+          <span className="text-neutral-200">
+            Olá, meu nome é Samuel Marxz.
+          </span>{" "}
+          Sou um designer e Desenvolvedor Web com +8 anos de experiência.
+          Apaixonado por tecnologia, viajens, café e leitura...
+        </h1>
+        <h2 className="text-xl leading-relaxed font-medium mb-4">
+          Minha especialidade é no desenvolvimento front-end com tecnologias
+          ReactJS, construindo interfaces de usuário responsivas para empresas
+          de todos os portes.
+        </h2>
       </motion.div>
 
       <LayoutGroup>

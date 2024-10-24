@@ -1,27 +1,28 @@
 export function Footer() {
   return (
-    <footer className="w-full md:max-w-md mx-auto space-y-12">
+    <footer className="space-y-12">
       <div className="space-y-8">
         <div className="inline-flex flex-wrap gap-2 items-baseline">
-          <h2 className="font-serif text-2xl text-neutral-200">Get in Touch</h2>
+          <h2 className="font-semibold text-lg text-neutral-200">
+            Entre em contato
+          </h2>
         </div>
         <p>
-          I&apos;m always interested in exploring new opportunities,
-          collaborating, or exchanging ideas with like-minded individuals. Feel
-          free to email me if you&apos;d like to see my portfolio deck or to
-          discuss a potential project.
+          Uau, você chegou até aqui. Isso é ótimo. De verdade. Tenho grande
+          apreço por conhecer pessoas e suas histórias, seja para projetos
+          profissionais, trocas de ideias ou simplesmente para bater um papo.
         </p>
       </div>
       <div className="divide-y divide-neutral-800 border-t border-neutral-800">
         <div className="py-4 flex justify-between items-center flex-wrap">
-          <h3 className="text-neutral-200">Availability</h3>
+          <h3 className="text-neutral-200">Disponibilidade</h3>
           <p className="flex gap-2 items-center">
             <span className="block w-2 h-2 rounded-full bg-green-400" />{" "}
-            Available for projects
+            Disponível para projetos
           </p>
         </div>
         <div className="py-4 flex justify-between items-center flex-wrap">
-          <h3 className="text-neutral-200">Resumé</h3>
+          <h3 className="text-neutral-200">Currículo</h3>
           <a href="#" className="underline link">
             Download
           </a>

@@ -32,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt-br">
       <body
         className={`${GeistSans.variable} ${instrument.variable} ${GeistMono.variable} dark bg-black text-neutral-400 antialiased font-sans`}
       >
@@ -43,7 +43,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="min-h-screen">
-            <div className="md:max-w-3xl px-8 mx-auto flex flex-col gap-16 md:gap-24 py-16 md:py-28">
+            <div className="md:max-w-2xl px-8 mx-auto flex flex-col gap-16 md:gap-24 py-16 md:py-28">
               {children}
             </div>
           </div>

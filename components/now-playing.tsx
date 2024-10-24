@@ -4,7 +4,7 @@ export async function NowPlaying() {
   const response = await getNowPlaying();
 
   if (!response.ok || response.status === 204) {
-    return <>I&apos;m not listening anything</>;
+    return <>No momento não estou escutanto nada no Spotify</>;
   }
 
   const song = await response.json();
@@ -23,10 +23,11 @@ export async function NowPlaying() {
       rel="noopener noreferrer"
       title={`Música ${title} de ${artist}`}
     >
-      I&apos;m listening{" "}
+      No momento estou escutando{" "}
       <span className="hover:text-neutral-800 dark:hover:text-neutral-300 transition duration-300">
-        {title} from {artist} ↗
-      </span>
+        {title} de {artist} ↗
+      </span>{" "}
+      no Spotify.
     </a>
   );
 }
