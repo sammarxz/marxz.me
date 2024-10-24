@@ -1,6 +1,5 @@
 import { Suspense } from "react";
 
-import { CurrentFocuses } from "@/components/current-focuses";
 import { Header } from "@/components/header";
 import { Projects } from "@/components/projects";
 import { Stats } from "@/components/stats";
@@ -13,6 +12,7 @@ import { Footer } from "@/components/footer";
 import { WeeklySchedule } from "@/components/weekly-schedule";
 import { LatestDevPosts } from "@/components/latest-dev-posts";
 import { Links } from "@/components/links";
+import Uses from "@/components/uses";
 
 export default function Home() {
   return (
@@ -29,8 +29,12 @@ export default function Home() {
       <Divider />
       <Links />
       <Divider />
+      <Uses />
+      <Divider />
       <BookCTA />
       <Newsletter />
+      <Divider />
+      <CurrentLocationStats />
       <Divider />
       <Footer />
     </main>

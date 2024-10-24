@@ -5,7 +5,7 @@ import { Loading } from "./ui/loading";
 
 export async function CurrentLocationStats() {
   return (
-    <div className="max-w-md mx-auto w-full">
+    <div className="w-full">
       <Suspense fallback={<Loading />}>
         <LocalStats />
       </Suspense>
