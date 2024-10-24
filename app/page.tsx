@@ -10,6 +10,7 @@ import { Divider } from "@/components/ui/divider";
 import { BookCTA } from "@/components/book-cta";
 import { Newsletter } from "@/components/newsletter";
 import { Footer } from "@/components/footer";
+import { WeeklySchedule } from "@/components/weekly-schedule";
 
 export default function Home() {
   return (
@@ -27,6 +28,7 @@ export default function Home() {
         <Divider />
         <CurrentLocationStats />
       </div>
+      <WeeklySchedule />
       <div className="flex flex-col gap-12">
         <BookCTA />
         <Newsletter />
