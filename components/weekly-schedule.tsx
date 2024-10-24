@@ -11,6 +11,7 @@ import {
   differenceInMinutes,
   addDays,
 } from "date-fns";
+import { Loading } from "./ui/loading";
 
 interface TimeRange {
   start: string;
@@ -236,7 +237,7 @@ export const WeeklySchedule = () => {
         <div className="grid grid-cols-5 gap-4">
           {isLoading ? (
             <div className="col-span-5 flex justify-center py-12">
-              <Loader2 className="w-8 h-8 animate-spin text-indigo-400" />
+              <Loading />
             </div>
           ) : (
             days.map((day) => {
