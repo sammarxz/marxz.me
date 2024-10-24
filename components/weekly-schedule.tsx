@@ -45,8 +45,6 @@ interface ScheduleByDay {
   [key: string]: DaySchedule;
 }
 
-const CAL_API_KEY = process.env.NEXT_PUBLIC_CAL_API_KEY;
-
 export const WeeklySchedule = () => {
   const [schedule, setSchedule] = useState<ScheduleByDay>({});
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -143,7 +141,7 @@ export const WeeklySchedule = () => {
         .split("T")[0];
 
       const response = await fetch(
-        `https://api.cal.com/v1/availability?apiKey=${CAL_API_KEY}&username=sammarxz&dateFrom=${startDate}&dateTo=${endDate}&eventTypeId=6&timeZone=America/Sao_Paulo`
+        `/api/availability?dateFrom=${startDate}&dateTo=${endDate}`
       );
 
       if (!response.ok) {
@@ -156,7 +154,7 @@ export const WeeklySchedule = () => {
       setSchedule(processedSchedule);
     } catch (err) {
       setError(
-        err instanceof Error ? err.message : "An unknown error occurred"
+        err instanceof Error ? err.message : "Ocorreu um erro desconhecido"
       );
     } finally {
       setIsLoading(false);
@@ -286,13 +284,6 @@ export const WeeklySchedule = () => {
           <div className="order-1 sm:order-2 flex items-center justify-center h-16 w-16 rounded-full border border-indigo-400">
             <Calendar className="text-indigo-400" />
           </div>
-
-          {/* <div className="flex-1 flex flex-wrap gap-2 items-baseline">
-            <div className="text-base">Weekly availability (overview)</div>
-            <div className="text-sm text-neutral-500">
-              *gray areas indicate unavailability
-            </div>
-          </div> */}
         </button>
 
         <div className="">
