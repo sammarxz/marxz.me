@@ -11,28 +11,23 @@ import { BookCTA } from "@/components/book-cta";
 import { Newsletter } from "@/components/newsletter";
 import { Footer } from "@/components/footer";
 import { WeeklySchedule } from "@/components/weekly-schedule";
+import { LatestDevPosts } from "@/components/latest-dev-posts";
 
 export default function Home() {
   return (
-    <main className="flex flex-col gap-16 md:gap-28">
-      <div className="flex flex-col gap-12">
-        <Header />
-        <Divider />
-        <Suspense fallback={<Loading />}>
-          <Stats />
-        </Suspense>
-      </div>
+    <main className="flex flex-col gap-12">
+      <Header />
+      <Divider />
+      <Suspense fallback={<Loading />}>
+        <Stats />
+      </Suspense>
       <Projects />
-      <div className="flex flex-col gap-12">
-        <CurrentFocuses />
-        <Divider />
-        <CurrentLocationStats />
-      </div>
       <WeeklySchedule />
-      <div className="flex flex-col gap-12">
-        <BookCTA />
-        <Newsletter />
-      </div>
+      <Divider />
+      <LatestDevPosts />
+      <BookCTA />
+      <Newsletter />
+      <Divider />
       <Footer />
     </main>
   );
