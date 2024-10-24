@@ -1,5 +1,4 @@
 import { CheckCircle } from "lucide-react";
-import Image from "next/image";
 
 export function BookCTA() {
   return (
@@ -8,13 +7,7 @@ export function BookCTA() {
       <div className="inline-flex h-full w-full items-center justify-center rounded-2xl bg-gray-950 p-8 md:p-12 md:py-20 text-sm font-medium text-gray-50 backdrop-blur-3xl">
         <div className="flex flex-col lg:flex-row items-center">
           <div className="lg:w-1/2 lg:pr-8 mb-8 lg:mb-0">
-            <Image
-              src="/ebook-cover.jpg"
-              alt="E-book Cover"
-              className="max-w-[200px] mx-auto rounded-lg shadow-md"
-              width={350}
-              height={488}
-            />
+            <div className="bg-indigo-500 max-w-[250px] h-[328px] w-full mx-auto rounded-lg shadow-lg" />
           </div>
           <div className="lg:w-1/2 text-center lg:text-left">
             <h2 className="text-3xl font-serif mb-4">
