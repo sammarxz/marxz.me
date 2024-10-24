@@ -12,6 +12,7 @@ import { Newsletter } from "@/components/newsletter";
 import { Footer } from "@/components/footer";
 import { WeeklySchedule } from "@/components/weekly-schedule";
 import { LatestDevPosts } from "@/components/latest-dev-posts";
+import { Links } from "@/components/links";
 
 export default function Home() {
   return (
@@ -25,6 +26,9 @@ export default function Home() {
       <WeeklySchedule />
       <Divider />
       <LatestDevPosts />
+      <Divider />
+      <Links />
+      <Divider />
       <BookCTA />
       <Newsletter />
       <Divider />
