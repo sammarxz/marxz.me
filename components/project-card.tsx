@@ -33,7 +33,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         duration: 0.25,
       }}
     >
-      <DialogTrigger className="flex w-full flex-col overflow-hidden border border-neutral-950/10 bg-black">
+      <DialogTrigger className="flex w-full flex-col overflow-hidden border border-neutral-950/10 bg-neutral-950">
         <DialogImage
           src={imageUrl}
           alt={imageAlt}

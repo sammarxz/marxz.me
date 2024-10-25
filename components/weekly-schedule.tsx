@@ -224,7 +224,7 @@ export const WeeklySchedule = () => {
                 {/* Busy time block */}
                 {busyHeight > 0 && (
                   <div
-                    className="absolute top-0 w-full bg-black border border-neutral-800"
+                    className="absolute top-0 w-full bg-neutral-950 border border-neutral-900"
                     style={{ height: `${busyHeight}%` }}
                   />
                 )}

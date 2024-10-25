@@ -1,5 +1,7 @@
 import type { Config } from "tailwindcss";
 
+import colors from "tailwindcss/colors";
+
 const config: Config = {
     darkMode: ["selector"],
     content: [
@@ -11,10 +13,10 @@ const config: Config = {
   	extend: {
 			fontFamily: {
         sans: ['var(--font-geist-sans)'],
-        serif: ["var(--font-instrument)"],
         mono: ['var(--font-geist-mono)'],
       },
   		colors: {
+				neutral: colors.zinc,
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

@@ -87,7 +87,7 @@ export const LatestDevPosts = () => {
       {posts.map((post) => (
         <Card
           key={post.id}
-          className="w-full group hover:border-neutral-700 transition-colors"
+          className="w-full group bg-neutral-500 hover:border-neutral-700 transition-colors"
         >
           <a href={post.url} target="_blank" rel="noopener noreferrer">
             <CardContent className="p-6">

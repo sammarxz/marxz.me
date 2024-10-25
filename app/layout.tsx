@@ -1,21 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Instrument_Serif } from "next/font/google";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { Analytics } from "@vercel/analytics/react";
 
-import { ThemeProvider } from "@/components/theme-provider";
-
 import { Toaster } from "@/components/ui/sonner";
 
 import "./globals.css";
-
-const instrument = Instrument_Serif({
-  weight: ["400"],
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-instrument",
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -32,24 +22,32 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-br">
+    <html lang="pt-br" className="[color-scheme:dark]">
       <body
-        className={`${GeistSans.variable} ${instrument.variable} ${GeistMono.variable} dark bg-black text-neutral-400 antialiased font-sans`}
+        className={`${GeistSans.variable} ${GeistMono.variable} dark font-sans overscroll-y-none bg-zinc-950 antialiased selection:bg-indigo-600/90 selection:text-white text-zinc-500`}
       >
-        <Analytics />
-        <ThemeProvider
-          // forcedTheme="dark"
-          defaultTheme="dark"
-          disableTransitionOnChange
+        <svg
+          className="pointer-events-none fixed isolate z-50 opacity-70 mix-blend-soft-light"
+          width="100%"
+          height="100%"
         >
-          <div className="min-h-screen">
-            <div className="md:max-w-2xl px-8 mx-auto flex flex-col gap-16 md:gap-24 py-16 md:py-28">
-              {children}
-            </div>
+          <filter id="noise">
+            <feTurbulence
+              type="fractalNoise"
+              baseFrequency="0.80"
+              numOctaves="4"
+              stitchTiles="stitch"
+            />
+          </filter>
+          <rect width="100%" height="100%" filter="url(#noise)" />
+        </svg>
+        <div className="min-h-screen relative z-10">
+          <div className="md:max-w-2xl px-8 mx-auto flex flex-col gap-16 md:gap-24 py-16 md:py-28">
+            {children}
           </div>
-
-          <Toaster />
-        </ThemeProvider>
+        </div>
+        <Toaster />
+        <Analytics />
       </body>
     </html>
   );
