@@ -3,6 +3,8 @@ import { getNowPlaying } from "@/lib/spotify";
 export async function NowPlaying() {
   const response = await getNowPlaying();
 
+  console.log(response);
+
   if (!response.ok || response.status === 204) {
     return <>No momento não estou escutanto nada no Spotify</>;
   }

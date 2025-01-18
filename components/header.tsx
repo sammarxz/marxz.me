@@ -9,15 +9,15 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 const socialLinks = [
   {
     title: "X/Twitter",
-    url: "",
+    url: "https://x.com/sammarxz",
   },
   {
     title: "Linkedin",
-    url: "",
+    url: "https://linkedin.com/in/sammarxz",
   },
   {
     title: "Github",
-    url: "",
+    url: "https://github.com/sammarxz",
   },
 ];
 
