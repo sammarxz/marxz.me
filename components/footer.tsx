@@ -23,13 +23,13 @@ export function Footer() {
         </div>
         <div className="py-4 flex justify-between items-center flex-wrap">
           <h3 className="text-neutral-200">Currículo</h3>
-          <a href="#" className="underline link">
+          <a href="/cv-sammarxz.pdf" className="underline link">
             Download
           </a>
         </div>
         <div className="py-4 flex justify-between items-center flex-wrap">
           <h3 className="text-neutral-200">Email</h3>
-          <a href="#" className="link">
+          <a href="mailto:sam@marxz.me" className="link">
             sam@marxz.me
           </a>
         </div>
