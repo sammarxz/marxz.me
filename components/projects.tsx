@@ -2,27 +2,12 @@ import { Cursor } from "@/components/core/cursor";
 
 import { ProjectCard } from "./project-card";
 
-const projects = [
-  {
-    title: "My5.me",
-    tag: "Projeto Pessoal",
-    description: "...",
-    images: ["/image-1.avif", "/image-2.avif", "/image-3.avif"],
-    previewUrl: "https://google.com",
-  },
-  {
-    title: "My5.me",
-    tag: "Projeto Pessoal",
-    description: "...",
-    images: ["/image-1.avif", "/image-2.avif", "/image-3.avif"],
-    previewUrl: "https://google.com",
-  },
-];
+import { projects } from "@/data/projects";
 
 export function Projects() {
   return (
-    <section className="grid md:grid-cols-2 gap-8">
-      {projects.map(({ title, tag, description, images, previewUrl }) => (
+    <section className="grid grid-cols-1 gap-8">
+      {projects.map(({ title, tag, description, images, tags, previewUrl }) => (
         <div key={title} className="overflow-hidden">
           <Cursor
             attachToParent
@@ -48,6 +33,7 @@ export function Projects() {
             images={images}
             title={title}
             tag={tag}
+            tags={tags}
             description={description}
             externalLink={previewUrl}
           />

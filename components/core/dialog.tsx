@@ -225,13 +225,27 @@ function DialogContainer({ children }: DialogContainerProps) {
     <AnimatePresence initial={false} mode="sync">
       {isOpen && (
         <>
+          {/* Site-wide overlay with lower z-index */}
+          <motion.div
+            key={`site-overlay-${uniqueId}`}
+            className="fixed inset-0 h-full w-full bg-neutral-950/40"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            style={{ zIndex: 30 }}
+          />
+
+          {/* Dialog backdrop with blur effect */}
           <motion.div
             key={`backdrop-${uniqueId}`}
             className="fixed inset-0 h-full w-full bg-white/40 backdrop-blur-sm dark:bg-black/40"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            style={{ zIndex: 40 }}
           />
+
+          {/* Dialog container */}
           <div className="fixed inset-0 z-50 flex items-center justify-center">
             {children}
           </div>

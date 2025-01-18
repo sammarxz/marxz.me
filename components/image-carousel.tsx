@@ -21,6 +21,28 @@ export function ImageCarousel({ images, className = "" }: CarouselProps) {
   const [imgIndex, setImgIndex] = useState(0);
   const dragX = useMotionValue(0);
 
+  const navigateCarousel = (direction: "prev" | "next") => {
+    if (direction === "prev" && imgIndex > 0) {
+      setImgIndex((prev) => prev - 1);
+    } else if (direction === "next" && imgIndex < images.length - 1) {
+      setImgIndex((prev) => prev + 1);
+    }
+  };
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") {
+        navigateCarousel("prev");
+      } else if (e.key === "ArrowRight") {
+        navigateCarousel("next");
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [imgIndex, images.length, navigateCarousel]);
+
   // Auto-play functionality
   useEffect(() => {
     const intervalRef = setInterval(() => {
@@ -76,7 +98,7 @@ export function ImageCarousel({ images, className = "" }: CarouselProps) {
               scale: imgIndex === idx ? 0.95 : 0.85,
             }}
             transition={SPRING_OPTIONS}
-            className="aspect-square w-full shrink-0 rounded-xl bg-zinc-700 object-cover"
+            className="aspect-video w-full shrink-0 rounded-xl bg-zinc-700 object-cover"
           />
         ))}
       </motion.div>
