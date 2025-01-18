@@ -22,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-br" className="[color-scheme:dark]">
+    <html lang="pt-br" className="[color-scheme:dark]" suppressHydrationWarning>
       <body
         className={`${GeistSans.variable} ${GeistMono.variable} dark font-sans overscroll-y-none bg-zinc-950 antialiased selection:bg-indigo-600/90 selection:text-white text-zinc-500`}
       >

@@ -8,10 +8,10 @@ import {
   DialogDescription,
   DialogContainer,
 } from "@/components/core/dialog";
+import { ImageCarousel } from "./image-carousel";
 
 interface ProjectCardProps {
-  imageUrl: string;
-  imageAlt: string;
+  images: string[];
   title: string;
   tag: string;
   description: string;
@@ -19,8 +19,7 @@ interface ProjectCardProps {
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
-  imageUrl,
-  imageAlt,
+  images,
   title,
   tag,
   description,
@@ -35,9 +34,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     >
       <DialogTrigger className="flex w-full flex-col overflow-hidden border border-neutral-950/10 bg-neutral-950">
         <DialogImage
-          src={imageUrl}
-          alt={imageAlt}
-          className="h-72 w-full object-cover rounded-2xl"
+          src={images[0]}
+          alt="proej"
+          className="h-60 w-full object-cover rounded-2xl"
         />
         <div className="flex flex-grow flex-row items-center justify-center p-4">
           <div className="space-y-0.5">
@@ -48,12 +47,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         </div>
       </DialogTrigger>
       <DialogContainer>
-        <DialogContent className="rounded-2xl pointer-events-auto relative flex h-auto w-full flex-col overflow-hidden border border-neutral-950/10 bg-neutral-900 sm:max-w-[450px]">
-          <DialogImage
-            src={imageUrl}
-            alt={imageAlt}
-            className="h-full max-h-[400px] w-full object-cover"
-          />
+        <DialogContent className="rounded-2xl pointer-events-auto relative flex h-fit w-full flex-col overflow-hidden border border-neutral-950/10 bg-neutral-900 sm:max-w-[450px]">
+          <ImageCarousel images={images} className="h-full w-full" />
           <div className="p-8 space-y-4">
             <div className="space-y-1">
               <DialogTitle className="text-3xl font-serif font-medium text-neutral-950 dark:text-neutral-50">
