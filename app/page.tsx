@@ -1,41 +1,26 @@
-import { Suspense } from "react";
-
-import { Header } from "@/components/header";
-import { Projects } from "@/components/projects";
-import { Stats } from "@/components/stats";
-import { Loading } from "@/components/ui/loading";
-import { CurrentLocationStats } from "@/components/current-location-stats";
-import { Divider } from "@/components/ui/divider";
-import { Footer } from "@/components/footer";
-import { WeeklySchedule } from "@/components/weekly-schedule";
-import { LatestDevPosts } from "@/components/latest-dev-posts";
-import { Links } from "@/components/links";
-import { LatestYouTubeVideo } from "@/components/latest-youtube-video";
+import { CardStack } from "@/components/card-stack"
+import { ProfileCard } from "@/components/profile-card"
+import { PulsatingCircle } from "@/components/pulsating-circle"
 
 export default function Home() {
   return (
-    <main className="flex flex-col gap-12">
-      <Header />
-      <Divider />
-      <Suspense fallback={<Loading />}>
-        <Stats />
-      </Suspense>
-      <Projects />
-      <WeeklySchedule />
-      <Divider />
-      <LatestDevPosts />
-      <Divider />
-      <Links />
-      <Divider />
-      <LatestYouTubeVideo />
-      {/* <Uses /> */}
-      {/* <Divider /> */}
-      {/* <BookCTA /> */}
-      {/* <Newsletter /> */}
-      <Divider />
-      <CurrentLocationStats />
-      <Divider />
-      <Footer />
+    <main className="flex min-h-screen items-center justify-center relative px-4">
+      <div className="w-full space-y-2">
+        {/* ProfileCard centralizado */}
+        <div className="max-w-lg mx-auto relative">
+          <ProfileCard />
+          <div className="w-full flex items-baseline justify-between mt-8">
+            <h2 className="font-mono uppercase text-xs text-white/60 tracking-wider">Selected Projects</h2>
+            <div className="flex items-center gap-2">
+              <PulsatingCircle />
+              <h3 className="text-white/40 text-sm">Available for work</h3>
+            </div>
+          </div>
+        </div>
+        <div className="w-full max-w-[550px] mx-auto z-10 h-fit">
+          <CardStack />
+        </div>
+      </div>
     </main>
-  );
+  )
 }

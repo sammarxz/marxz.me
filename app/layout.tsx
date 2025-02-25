@@ -1,11 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
-import { Toaster } from "@/components/ui/sonner";
 import Script from "next/script";
+
 import "./globals.css";
 
-const siteName = "Samuel Marxz";
+const siteName = "Sam Marxz";
 const siteUrl = "https://marxz.me";
 const defaultDescription =
   "Designer e Desenvolvedor Web com mais de 8 anos de experiência. Especializado em front-end com ReactJS, construindo interfaces de usuário responsivas e acessíveis.";
@@ -128,30 +128,9 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${GeistSans.variable} ${GeistMono.variable} dark font-sans overscroll-y-none bg-zinc-950 antialiased selection:bg-indigo-600/90 selection:text-white text-zinc-500`}
+        className={`${GeistSans.variable} ${GeistMono.variable} dark font-sans overscroll-y-none bg-black antialiased selection:bg-green-300/90 selection:text-black text-white/80`}
       >
-        <svg
-          className="pointer-events-none fixed isolate z-50 opacity-70 mix-blend-soft-light"
-          width="100%"
-          height="100%"
-          aria-hidden="true"
-        >
-          <filter id="noise">
-            <feTurbulence
-              type="fractalNoise"
-              baseFrequency="0.80"
-              numOctaves="4"
-              stitchTiles="stitch"
-            />
-          </filter>
-          <rect width="100%" height="100%" filter="url(#noise)" />
-        </svg>
-        <div className="min-h-screen relative z-10">
-          <div className="md:max-w-2xl px-8 mx-auto flex flex-col gap-16 md:gap-24 py-16 md:py-28">
-            {children}
-          </div>
-        </div>
-        <Toaster />
+        {children}
       </body>
     </html>
   );

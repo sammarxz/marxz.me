@@ -1,62 +1,84 @@
+export type Project = typeof projects[number];
+
+
 export const projects = [
   {
-    title: "Agência WeTwo",
-    tag: "Projeto Pessoal",
+    title: "WeTwo",
+    shortDescription: "Digital automation for local businesses",
     tags: [
       "NextJS",
       "typescript",
-      "framer motion",
+      "framer-motion",
       "tailwindCSS",
-      "Integração CRM",
+      "n8n-webhooks",
     ],
-    description: `Website e branding da WeTwo, minha agência de marketing digital
-    com foco em automações para negócios locais. Foi construído com Next.js 14 e 
-    TypeScript. Features principais incluem chatbot interativo customizado, 
-    animações avançadas (Framer Motion/GSAP), e sistema de leads integrado. 
-    Desenvolvido com foco em performance e SEO, utilizando Tailwind CSS 
-    para estilização e padrões modernos de componentização React.
-    `,
-    images: [
-      "/works/wetwo/1.png",
-      "/works/wetwo/22.png",
-      "/works/wetwo/2.png",
-      "/works/wetwo/3.png",
-      "/works/wetwo/4.png",
-      "/works/wetwo/5.png",
-      "/works/wetwo/6.png",
-      "/works/wetwo/7.png",
-      "/works/wetwo/8.png",
-      "/works/wetwo/9.png",
-      "/works/wetwo/10.png",
-      "/works/wetwo/11.png",
-      "/works/wetwo/12.png",
-    ],
+    description: `My Agency specializes in digital automation for local businesses,
+    offering marketing, design and web development solutions for companies
+    seeking to grow their online presence.`,
+    image: "/works/wetwo.svg",
     previewUrl: "https://wetwo.digital",
   },
   {
-    title: "Ágora Investimentos",
-    tag: "Freelancer",
-    tags: ["UI Design", "branding", "ilustração", "web design"],
-    description:
-      "Redesign conceitual da marca Ágora Investimentos, desenvolvido durante seu relançamento em 2019. O projeto envolveu a criação de um novo sistema de design, incluindo identidade visual, ilustrações customizadas e família de ícones para a plataforma digital. O conceito visual traduz a modernização da marca mantendo sua credibilidade histórica, com uma paleta cromática que equilibra o azul institucional com tons mais contemporâneos. Todo o sistema foi pensado para funcionar de forma coesa tanto em interfaces digitais quanto em materiais impressos.",
-    images: [
-      "/works/agora/1.jpg",
-      "/works/agora/2.jpg",
-      "/works/agora/3.jpg",
-      "/works/agora/4.jpg",
-      "/works/agora/5.jpg",
-      "/works/agora/6.jpg",
-      "/works/agora/7.jpg",
-      "/works/agora/8.jpg",
-      "/works/agora/9.jpg",
-      "/works/agora/10.jpg",
-      "/works/agora/11.jpg",
-      "/works/agora/12.jpg",
-      "/works/agora/13.jpg",
-      "/works/agora/14.jpg",
-      "/works/agora/15.jpg",
-      "/works/agora/16.jpg",
-      "/works/agora/17.jpg",
+    title: "Urbanus",
+    shortDescription: "Buy properties with cashback",
+    tags: [
+      "NextJS",
+      "typescript",
+      "framer-motion",
+      "tailwindCSS",
+      "n8n-webhooks",
     ],
+    description: `Complete development of a professional website for Urbanus, 
+    a real estate company. The project included responsive design, lead 
+    nurturing form and CRM integration via n8n webhooks.`,
+    image: "/works/urbanus.svg",
+    previewUrl: "https://www.urbanus.imb.br/",
+  },
+  {
+    title: "5:AM",
+    shortDescription: "A terminal-inspired morning routine tracker",
+    tags: [
+      "NextJS", "Zustand", "Typescript", "Radix"
+    ],
+    description: `A terminal-inspired morning routine tracker built with React, Typescript, and Tailwind CSS. 
+    This minimalist application helps you create and maintain a consistent 5 AM morning routine 
+    with a unique retro CRT terminal aesthetic.`,
+    image: "/works/5am.svg",
+    previewUrl: "https://5am.marxz.me/",
+  },
+  {
+    title: "Biblia-365",
+    shortDescription: "365-Day Bible Reading Plan",
+    tags: [
+      "radix",
+      "zod",
+      "react-hook-form",
+      "prisma",
+      "next-auth",
+      "n8n-webhooks",
+    ],
+    description: `A web application for daily Bible reading that helps users
+    maintain a reading routine through an annual plan with 365 days of Bible texts.`,
+    image: "/works/biblia-365.svg",
+    previewUrl: "http://biblia-365.com/",
+  },
+  {
+    title: "Inspira",
+    shortDescription: "My personal UI inspiration gallery",
+    tags: [
+      "JavaScript", "Web Components", "Service worker", "Cache Storage"
+    ],
+    description: `A curated collection of UI design inspiration from around the web, 
+    built with vanilla JavaScript and Web Components. Ideal for designers and developers looking for references.`,
+    image: "/works/inspira.svg",
+    previewUrl: "https://sammarxz.github.io/inspira/",
+  },
+  {
+    title: "Pomerode",
+    shortDescription: "Minimalist Pomodoro Timer",
+    tags: ["GTK4", "Libadwaita", "Vala", "elementary OS"],
+    description: `Minimalist Pomodoro timer app developed for elementary OS. Built with GTK4 and Libadwaita, it offers a native and elegant experience.`,
+    image: "/works/pomerode.svg",
+    previewUrl: "https://github.com/sammarxz/pomerode",
   },
 ];
