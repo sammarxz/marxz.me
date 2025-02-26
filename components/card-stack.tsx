@@ -160,9 +160,11 @@ export function CardStack() {
           },
         }}
       >
-        <motion.div animate={{
-          y: isExpanded ? 80 : 0,
-        }}>
+        <motion.div
+          animate={{
+            y: isExpanded ? 140 : 0,
+          }}
+        >
           <motion.div className="w-full relative space-y-4">
             {projects.map((project, index) => {
               const styles = calculateStyles(index);
@@ -315,53 +317,56 @@ export function CardStack() {
         ) : null}
       </AnimatePresence>
       <AnimatePresence>
-        {!isExpanded ? (
-          <motion.button
-            ref={buttonRef}
-            layout
-            onClick={toggleExpand}
-            className="rounded-full border border-white/20 px-6 py-2 flex items-center gap-2 z-[200] text-white/80 hover:text-white hover:border-white/30 transition-colors"
+        <motion.button
+          ref={buttonRef}
+          layout
+          onClick={toggleExpand}
+          className="rounded-full border border-white/20 px-6 py-2 flex items-center gap-2 z-[200] text-white/80 hover:text-white hover:border-white/30 transition-colors"
+          transition={{
+            duration: 0.3,
+            type: "spring",
+            stiffness: 300,
+            damping: 20,
+          }}
+          animate={{
+            opacity: isExpanded ? 0 : 1,
+            transition: {
+              delay: isExpanded ? -0.5 : 0.5
+            }
+          }}
+        >
+          {isClient ? (
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={isExpanded ? "hide" : "show"}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2 }}
+              >
+                {isExpanded ? "Hide" : "Show all"}
+              </motion.span>
+            </AnimatePresence>
+          ) : (
+            <span>{isExpanded ? "Hide" : "Show all"}</span>
+          )}
+          <motion.div
+            layoutId="arrow"
+            initial={false}
+            animate={{
+              rotate: isExpanded ? 180 : 0,
+              y: isExpanded ? -1 : 1,
+            }}
             transition={{
-              duration: 0.3,
               type: "spring",
               stiffness: 300,
               damping: 20,
             }}
+            className="group-hover:scale-110"
           >
-            {isClient ? (
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={isExpanded ? "hide" : "show"}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  {isExpanded ? "Hide" : "Show all"}
-                </motion.span>
-              </AnimatePresence>
-            ) : (
-              <span>{isExpanded ? "Hide" : "Show all"}</span>
-            )}
-
-            <motion.div
-              layoutId="arrow"
-              initial={false}
-              animate={{
-                rotate: isExpanded ? 180 : 0,
-                y: isExpanded ? -1 : 1,
-              }}
-              transition={{
-                type: "spring",
-                stiffness: 300,
-                damping: 20,
-              }}
-              className="group-hover:scale-110"
-            >
-              <ChevronDown className="w-4 h-4" />
-            </motion.div>
-          </motion.button>
-        ) : null}
+            <ChevronDown className="w-4 h-4" />
+          </motion.div>
+        </motion.button>
       </AnimatePresence>
     </motion.section>
   );
