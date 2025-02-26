@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, ExternalLink } from "lucide-react";
+
 import useClickOutside from "@/hooks/useClickOutside";
 
 import { Project, projects } from "@/data/projects";
@@ -38,8 +39,8 @@ const cardItemsVariants = {
 export function CardStack() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isClient, setIsClient] = useState(false);
-  const cardsRef = useRef<HTMLDivElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
+  const cardsRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
@@ -51,10 +52,14 @@ export function CardStack() {
   // Usar useClickOutside para o container de cards, excluindo o botão
   useClickOutside(cardsRef, (e) => {
     // Verificar se o clique foi no botão ou dentro dele
-    if (buttonRef.current && (buttonRef.current === e.target || buttonRef.current.contains(e.target as Node))) {
+    if (
+      buttonRef.current &&
+      (buttonRef.current === e.target ||
+        buttonRef.current.contains(e.target as Node))
+    ) {
       return;
     }
-    
+
     if (!selectedProject) {
       setIsExpanded(false);
     }
@@ -131,62 +136,80 @@ export function CardStack() {
   };
 
   return (
-    <motion.section whileHover={{ zIndex: 30 }} className="w-full flex flex-col items-center justify-end gap-4 h-[150px]">
+    <motion.section className="w-full flex flex-col items-center justify-end gap-4 h-[150px]">
       <AnimatePresence>
         {isExpanded ? (
           <motion.div
-            className="bg-black/70 backdrop-blur-sm absolute inset-0 z-30"
+            className="bg-black/70 backdrop-blur-sm absolute inset-0"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0, transition: { delay: 0.3  } }}
+            exit={{ opacity: 0, transition: { delay: 0.3 } }}
+            whileInView={{
+              zIndex: 30,
+            }}
           />
         ) : null}
       </AnimatePresence>
-      <motion.div ref={cardsRef} className={`relative w-full space-y-4`}>
-        {projects.map((project, index) => {
-          const styles = calculateStyles(index);
-          return (
-            <motion.article
-              key={project.title}
-              className="relative w-full border border-white/10 
+      <motion.div
+        ref={cardsRef}
+        className={`w-full `}
+        animate={{
+          zIndex: isExpanded ? 30 : 10,
+          transition: {
+            delay: isExpanded ? 0 : 1,
+          },
+        }}
+      >
+        <motion.div animate={{
+          y: isExpanded ? 80 : 0,
+        }}>
+          <motion.div className="w-full relative space-y-4">
+            {projects.map((project, index) => {
+              const styles = calculateStyles(index);
+              return (
+                <motion.article
+                  key={project.title}
+                  className="relative w-full border border-white/10 
               bg-black flex items-center justify-between
-              rounded-2xl p-4 shadow-xl cursor-pointer hover:border-white/20 transition-colors z-30"
-              initial={styles.transformedState}
-              animate={
-                isExpanded ? styles.defaultState : styles.transformedState
-              }
-              transition={{
-                duration: 0.5,
-                type: "spring",
-                bounce: 0.3,
-                stiffness: 280,
-                damping: 18,
-                delay: calculateDelay(index, isExpanded),
-              }}
-              onClick={() => setSelectedProject(project)}
-            >
-              <div className="relative flex items-center justify-between w-full">
-                <div className="flex items-center gap-4">
-                  <div className="relative w-12 h-12 rounded-xl overflow-hidden">
-                    <motion.img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover rounded-xl"
-                    />
+              rounded-2xl p-4 shadow-xl cursor-pointer hover:border-white/20 transition-colors"
+                  initial={styles.transformedState}
+                  animate={
+                    isExpanded ? styles.defaultState : styles.transformedState
+                  }
+                  transition={{
+                    duration: 0.5,
+                    type: "spring",
+                    bounce: 0.3,
+                    stiffness: 280,
+                    damping: 18,
+                    delay: calculateDelay(index, isExpanded),
+                  }}
+                  onClick={() => setSelectedProject(project)}
+                >
+                  <div className="relative flex items-center justify-between w-full">
+                    <div className="flex items-center gap-4">
+                      <div className="relative w-12 h-12 rounded-xl overflow-hidden">
+                        <motion.img
+                          src={project.image}
+                          alt={project.title}
+                          className="w-full h-full object-cover rounded-xl"
+                        />
+                      </div>
+                      <div>
+                        <motion.h1 className="text-white/80 font-medium">
+                          {project.title}
+                        </motion.h1>
+                        <motion.h2 className="text-white/60 text-xs sm:text-sm truncate max-w-[210px] sm:max-w-[400px]">
+                          {project.shortDescription}
+                        </motion.h2>
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <motion.h1 className="text-white/80 font-medium">
-                      {project.title}
-                    </motion.h1>
-                    <motion.h2 className="text-white/60 text-xs sm:text-sm truncate max-w-[210px] sm:max-w-[400px]">
-                      {project.shortDescription}
-                    </motion.h2>
-                  </div>
-                </div>
-              </div>
-            </motion.article>
-          );
-        })}
+                </motion.article>
+              );
+            })}
+          </motion.div>
+        </motion.div>
       </motion.div>
       <AnimatePresence>
         {selectedProject ? (
@@ -291,51 +314,55 @@ export function CardStack() {
           </>
         ) : null}
       </AnimatePresence>
-      <motion.button
-        ref={buttonRef}
-        layout
-        onClick={toggleExpand}
-        className="rounded-full border border-white/20 px-6 py-2 flex items-center gap-2 z-[200] text-white/80 hover:text-white hover:border-white/30 transition-colors"
-        transition={{
-          duration: 0.3,
-          type: "spring",
-          stiffness: 300,
-          damping: 20,
-        }}
-      >
-        {isClient ? (
-          <AnimatePresence mode="wait">
-            <motion.span
-              key={isExpanded ? "hide" : "show"}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.2 }}
-            >
-              {isExpanded ? "Hide" : "Show all"}
-            </motion.span>
-          </AnimatePresence>
-        ) : (
-          <span>{isExpanded ? "Hide" : "Show all"}</span>
-        )}
+      <AnimatePresence>
+        {!isExpanded ? (
+          <motion.button
+            ref={buttonRef}
+            layout
+            onClick={toggleExpand}
+            className="rounded-full border border-white/20 px-6 py-2 flex items-center gap-2 z-[200] text-white/80 hover:text-white hover:border-white/30 transition-colors"
+            transition={{
+              duration: 0.3,
+              type: "spring",
+              stiffness: 300,
+              damping: 20,
+            }}
+          >
+            {isClient ? (
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={isExpanded ? "hide" : "show"}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  {isExpanded ? "Hide" : "Show all"}
+                </motion.span>
+              </AnimatePresence>
+            ) : (
+              <span>{isExpanded ? "Hide" : "Show all"}</span>
+            )}
 
-        <motion.div
-          layoutId="arrow"
-          initial={false}
-          animate={{
-            rotate: isExpanded ? 180 : 0,
-            y: isExpanded ? -1 : 1,
-          }}
-          transition={{
-            type: "spring",
-            stiffness: 300,
-            damping: 20,
-          }}
-          className="group-hover:scale-110"
-        >
-          <ChevronDown className="w-4 h-4" />
-        </motion.div>
-      </motion.button>
+            <motion.div
+              layoutId="arrow"
+              initial={false}
+              animate={{
+                rotate: isExpanded ? 180 : 0,
+                y: isExpanded ? -1 : 1,
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 300,
+                damping: 20,
+              }}
+              className="group-hover:scale-110"
+            >
+              <ChevronDown className="w-4 h-4" />
+            </motion.div>
+          </motion.button>
+        ) : null}
+      </AnimatePresence>
     </motion.section>
   );
 }

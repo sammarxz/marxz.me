@@ -17,7 +17,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="w-full max-w-[550px] mx-auto z-10 h-fit">
+        <div className="w-full max-w-[550px] mx-auto h-[150px]">
           <CardStack />
         </div>
       </div>

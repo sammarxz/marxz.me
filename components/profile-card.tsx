@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 
 export function ProfileCard() {
   const [showStories, setShowStories] = useState(false);
@@ -14,7 +14,7 @@ export function ProfileCard() {
 
   useEffect(() => {
     const storyUrls = Array.from(
-      { length: 10 },
+      { length: 11 },
       (_, i) => `/stories/${i + 1}.jpeg`
     );
     setStories(storyUrls);
@@ -88,19 +88,26 @@ export function ProfileCard() {
       <header className="flex flex-col gap-8">
         <div className="flex items-center justify-between w-full relative z-20">
           <div className="flex items-center gap-4">
-            <div
+            <motion.div
               className="w-12 h-12 rounded-2xl bg-secondary cursor-pointer relative"
               onClick={() => setShowStories(true)}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: .9 }}
             >
               <div className="absolute inset-0 rounded-full -m-0.5 p-0.5 bg-gradient-to-tr from-yellow-500 via-red-500 via-purple-500 to-blue-500 -z-10" />
-              <img
+              <Image
                 src="/profile-sammarxz.jpg"
-                alt="Sam Marxz"
+                alt="Sam Marxz profile picture"
+                width={32}
+                height={32}
                 className="w-full h-full object-cover border rounded-full border-black"
               />
-            </div>
+            </motion.div>
             <div className="flex flex-col">
-              <h1 className="text-lg font-semibold text-white/80">Sam Marxz</h1>
+              <div className="flex items-center gap-1">
+                <h1 className="text-lg font-semibold text-white/80">Sam Marxz</h1>
+                <Image src="/verified.svg" alt="instagram verified" width={18} height={18} />
+              </div>
               <p className="text-sm text-white/60">
                 Designer &amp;&amp; Developer
               </p>
@@ -111,11 +118,11 @@ export function ProfileCard() {
             whileTap={{ scale: 0.9 }}
             href="https://linktr.ee/sammarxz" 
             target="_blank" 
-            className="group relative flex h-8 w-8 items-center justify-center 
+            className="group relative flex h-12 w-12 items-center justify-center 
             overflow-hidden rounded-lg p-[6px] 
             transition-shadow ease-out bg-black 
             shadow-lg shadow-inner-shadow-dark-float border border-white/10">
-            <ArrowUpRight />
+            <ExternalLink className="w-4 h-4" />
           </motion.a>
         </div>
         <p className="text-xl leading-relaxed text-white/80">
