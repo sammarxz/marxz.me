@@ -14,7 +14,7 @@ export function ProfileCard() {
 
   useEffect(() => {
     const storyUrls = Array.from(
-      { length: 11 },
+      { length: 13 },
       (_, i) => `/stories/${i + 1}.jpeg`
     );
     setStories(storyUrls);
