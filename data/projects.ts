@@ -16,7 +16,7 @@ export const projects = [
     offering marketing, design and web development solutions for companies
     seeking to grow their online presence.`,
     image: "/works/wetwo.svg",
-    previewUrl: "https://wetwo.digital",
+    previewUrl: "https://wetwo.vercel.app",
   },
   {
     title: "Urbanus",
